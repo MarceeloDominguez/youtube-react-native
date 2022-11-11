@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, StatusBar, Text, FlatList } from "react-native";
-import Header from "../components/Header";
+import { View, StyleSheet, StatusBar } from "react-native";
+import Videos from "../components/Videos";
 import { fetchApi } from "../helpers/fetchApi";
 
 export default function Home() {
@@ -16,36 +16,10 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
-      <FlatList
-        data={videos}
-        keyExtractor={(_, index) => index.toString()}
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={
-          <Header
-            setSelectedCategory={setSelectedCategory}
-            selectedCategory={selectedCategory}
-          />
-        }
-        contentContainerStyle={
-          {
-            //paddingHorizontal: 20,
-            //paddingVertical: 5,
-            //paddingTop: 105,
-          }
-        }
-        renderItem={({ item }) => {
-          return (
-            <View
-              style={{
-                backgroundColor: item.color,
-                height: 120,
-                marginBottom: 20,
-              }}
-            >
-              <Text>{item.snippet.title}</Text>
-            </View>
-          );
-        }}
+      <Videos
+        videos={videos}
+        setSelectedCategory={setSelectedCategory}
+        selectedCategory={selectedCategory}
       />
     </View>
   );

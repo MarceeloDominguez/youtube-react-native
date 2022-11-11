@@ -54,7 +54,7 @@ export default function VideoCard({ videos }) {
           >
             <Text style={styles.titleChannel}>{channelTitle}</Text>
             <Text style={[styles.titleChannel, { marginLeft: 10 }]}>
-              {Moment(publishTime).endOf("day").fromNow()}
+              - {Moment(publishTime).endOf("day").fromNow()}
             </Text>
           </View>
         </View>

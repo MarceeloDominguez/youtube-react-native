@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, Image, StyleSheet, View, Text } from "react-native";
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+} from "react-native";
 import { WebView } from "react-native-webview";
 import { fetchApi } from "../helpers/fetchApi";
 import { parseHtmlEnteties } from "../helpers/parseHtmlEnteties";
@@ -27,7 +34,7 @@ export default function VideoDetail({ route }) {
   }, [channelId]);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.video}>
         <WebView
           source={{
@@ -58,7 +65,7 @@ export default function VideoDetail({ route }) {
         </Text>
       </View>
       <Videos videos={videos} header={false} />
-    </View>
+    </ScrollView>
   );
 }
 
